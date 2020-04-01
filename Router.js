@@ -2,4 +2,4 @@ class Router{
 
 }
 
-module.export = Router
+module.exports = Router
