@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Dihfahsih1/react-login.git"
+    "url": "git+https://github.com/Dihfahsih1/Login-React-Backend.git"
   },
   "keywords": [
     "login-react"
@@ -16,7 +16,14 @@
   "author": "Mugoya Dihfahsih",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Dihfahsih1/react-login/issues"
+    "url": "https://github.com/Dihfahsih1/Login-React-Backendissues"
   },
-  "homepage": "https://github.com/Dihfahsih1/react-login#readme"
+  "homepage": "https://github.com/Dihfahsih1/Login-React-Backend.git#readme",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "express": "^4.17.1",
+    "express-mysql-session": "^2.1.4",
+    "express-session": "^1.17.0",
+    "mysql": "^2.18.1"
+  }
 }
