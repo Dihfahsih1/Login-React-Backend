@@ -3,14 +3,14 @@ const app = express('');
 const path = require('path');
 const mysql = require('mysql');
 const session = require('express-session');
-const mySQLStore = require('express-mysql-session')(session);
+const MySQLStore = require('express-mysql-session')(session);
 const router = require('./Router');
 
 app.use(express.static(path.join(__dirname, 'build')))
 app.use(express.json());
 //database connection
 
-const db =mysql.createConnection({
+const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password:'',
@@ -22,7 +22,21 @@ db.connect(function(err){
       throw err;
       return false;
   }
-  else {
-    console.log('Connected Successfully');
-  }
 });
+
+const sessionStore = new MySQLStore({
+  expiration:(1825 * 86400 *1000),
+  endConnectionOnClose: false
+}, db);
+
+app.use(session({
+  key: 'hgsdj48989mnmsuyi',
+  secret: 'hjhf78379uhgsdfuyi849iy',
+  store: sessionStore,
+  resave: false,
+  saveUninitialized: false,
+  cookie:{
+    maxAge:(1825 * 86400 *1000),
+    httpOnly:false
+  }
+}));
