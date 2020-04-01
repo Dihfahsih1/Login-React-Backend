@@ -4,7 +4,7 @@ const path = require('path');
 const mysql = require('mysql');
 const session = require('express-session');
 const MySQLStore = require('express-mysql-session')(session);
-const router = require('./Router');
+const Router = require('./Router');
 
 app.use(express.static(path.join(__dirname, 'build')))
 app.use(express.json());
@@ -40,3 +40,9 @@ app.use(session({
     httpOnly:false
   }
 }));
+new Router(app, db);
+app.get('/', function(req, res){
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+
+});
+app.listen(3000);
