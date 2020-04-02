@@ -76,7 +76,7 @@ isLoggedIn(app, db){
   app.post('/isLoggedIn', (req, res) =>{
     if(req.session.userID){
       let cols = [req.session.userID];
-      db.query('SELECT * FROM user  WHERE id = ? LIMIT 1', (err, data, fields) =>{
+      db.query('SELECT * FROM user  WHERE id = ? LIMIT 1', cols, (err, data, fields) =>{
         if(data && data.length ===1){
           res.json({
             success:true,
