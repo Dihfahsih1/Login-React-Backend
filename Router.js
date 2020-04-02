@@ -31,9 +31,10 @@ login(app, db){
         bcrypt.compare(password, data[0].password,(bcryptErr, verified) =>{
           if(verified){
             req.session.userID = data[0].id;
-            req.json({
-              success:true,
-              username:data[0].username
+
+            res.json({
+              success: true,
+              username: data[0].username
             })
             return;
           }
